@@ -11,7 +11,7 @@ const Footer = () => {
               alt="Logo"
               className="h-12 mb-4 rounded-3xl"
             />
-            <h2 className="text-2xl font-bold">BookHeaven</h2>
+            <h2 className="text-2xl font-bold">Book Heaven</h2>
             <p className="mt-2 text-sm">Your gateway to endless stories</p>
           </div>
 
