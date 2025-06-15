@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import Slider from "./Slider";
 
 const Home = () => {
-  document.title="Home"
+  document.title = "Home";
   return (
     <div>
-      this is home
+      <Slider></Slider>
     </div>
   );
 };
