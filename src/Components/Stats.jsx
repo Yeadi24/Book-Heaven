@@ -49,7 +49,7 @@ const Stats = () => {
             >
               <div className="text-4xl mb-3">{stat.icon}</div>
               <div className="text-3xl md:text-4xl font-extrabold">
-                <CountUp end={stat.value} duration={10} separator="," />
+                <CountUp end={stat.value} duration={10} separator="," />+
               </div>
               <p className="text-base md:text-lg font-medium mt-1">
                 {stat.label}

@@ -45,20 +45,20 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/allposts" className={linkStyle + " text-red-700"}>
-          All Posts
+        <NavLink to="/bookshelf" className={linkStyle + " text-red-700"}>
+          Bookshelf
         </NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink to="/myposts" className={linkStyle + " text-indigo-700"}>
-              My Posts
+            <NavLink to="/myBooks" className={linkStyle + " text-indigo-700"}>
+              My Books
             </NavLink>
           </li>
           <li>
-            <NavLink to="/addPost" className={linkStyle + " text-orange-700"}>
-              Add Post
+            <NavLink to="/addBook" className={linkStyle + " text-orange-700"}>
+              Add Book
             </NavLink>
           </li>
         </>

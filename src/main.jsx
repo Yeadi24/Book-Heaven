@@ -7,6 +7,9 @@ import Home from "./Components/Home.jsx";
 import Login from "./Components/Login.jsx";
 import Register from "./Components/Register.jsx";
 import AuthProvider from "./Contexts/AuthProvider.jsx";
+import AddBook from "./Components/AddBook.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
+import BookShelf from "./Components/BookShelf.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,22 @@ const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "/addBook",
+        element: (
+          <PrivateRoute>
+            <AddBook></AddBook>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/bookshelf",
+        loader: () => {
+          const data = fetch(`http://localhost:3000/books`);
+          return data;
+        },
+        element: <BookShelf></BookShelf>,
       },
     ],
   },
