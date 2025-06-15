@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "./Slider";
 import Banner from "./Banner";
+import Stats from "./Stats";
 
 const Home = () => {
   document.title = "Home";
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Slider></Slider>
+      <Stats></Stats>
     </div>
   );
 };
