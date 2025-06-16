@@ -14,11 +14,11 @@ const Card = ({ book }) => {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)] group min-h-[470px] flex flex-col">
+    <div className="bg-white rounded-3xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)] group min-h-[800px] flex flex-col">
       <img
         src={cover_photo}
         alt={book_title}
-        className="w-full h-52 object-cover group-hover:brightness-90 transition duration-300"
+        className="w-full h-[700px] object-cover group-hover:brightness-90 transition duration-300"
       />
 
       <div className="p-5 flex flex-col flex-grow">
