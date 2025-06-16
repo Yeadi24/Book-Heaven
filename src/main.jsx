@@ -11,6 +11,7 @@ import AddBook from "./Components/AddBook.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import BookShelf from "./Components/BookShelf.jsx";
 import MyBooks from "./Components/MyBooks.jsx";
+import UpdateBook from "./Components/UpdateBook.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,18 +55,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: "/updateBook/:id",
-      //   loader: ({ params }) => {
-      //     const data = fetch(`http://localhost:3000/books/${params.id}`);
-      //     return data;
-      //   },
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpdatePost></UpdatePost>
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/updateBook/:id",
+        loader: ({ params }) => {
+          const data = fetch(`http://localhost:3000/books/${params.id}`);
+          return data;
+        },
+        element: (
+          <PrivateRoute>
+            <UpdateBook></UpdateBook>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -5,7 +5,6 @@ import { Flip } from "react-awesome-reveal";
 
 const BookShelf = () => {
   const books = useLoaderData();
-  console.log(books);
 
   document.title = "Book Shelf";
 
