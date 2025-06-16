@@ -12,6 +12,7 @@ import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import BookShelf from "./Components/BookShelf.jsx";
 import MyBooks from "./Components/MyBooks.jsx";
 import UpdateBook from "./Components/UpdateBook.jsx";
+import Profile from "./Components/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateBook></UpdateBook>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
           </PrivateRoute>
         ),
       },

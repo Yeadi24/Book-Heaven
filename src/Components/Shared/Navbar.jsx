@@ -61,6 +61,11 @@ const Navbar = () => {
               Add Book
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/profile" className={linkStyle + " text-pink-700"}>
+              Profile
+            </NavLink>
+          </li>
         </>
       )}
     </>
