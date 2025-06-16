@@ -13,6 +13,8 @@ import BookShelf from "./Components/BookShelf.jsx";
 import MyBooks from "./Components/MyBooks.jsx";
 import UpdateBook from "./Components/UpdateBook.jsx";
 import Profile from "./Components/Profile.jsx";
+import BookDetails from "./Components/BookDetails.jsx";
+import NotFound from "./Components/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,19 @@ const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/books/:id",
+        loader: ({ params }) => {
+          const data = fetch(`http://localhost:3000/posts/${params.id}`);
+          return data;
+        },
+        element: (
+          <PrivateRoute>
+            <BookDetails></BookDetails>
+          </PrivateRoute>
+        ),
+        errorElement: <NotFound></NotFound>,
       },
     ],
   },

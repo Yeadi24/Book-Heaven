@@ -46,7 +46,7 @@ const Card = ({ book }) => {
           </div>
         </div>
         <Link
-          to={`/book/${_id}`}
+          to={`/books/${_id}`}
           className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2 rounded-full text-center text-base font-semibold shadow-md hover:from-purple-500 hover:to-indigo-600 transition-all duration-300"
         >
           See More
