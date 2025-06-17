@@ -41,6 +41,7 @@ const router = createBrowserRouter([
             <AddBook></AddBook>
           </PrivateRoute>
         ),
+        errorElement: <NotFound></NotFound>,
       },
       {
         path: "/bookshelf",
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
           return data;
         },
         element: <BookShelf></BookShelf>,
+        errorElement: <NotFound></NotFound>,
       },
       {
         path: "/mybooks",
@@ -57,6 +59,7 @@ const router = createBrowserRouter([
             <MyBooks></MyBooks>
           </PrivateRoute>
         ),
+        errorElement: <NotFound></NotFound>,
       },
       {
         path: "/updateBook/:id",
@@ -69,6 +72,7 @@ const router = createBrowserRouter([
             <UpdateBook></UpdateBook>
           </PrivateRoute>
         ),
+        errorElement: <NotFound></NotFound>,
       },
       {
         path: "/profile",
@@ -78,6 +82,7 @@ const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+        errorElement: <NotFound></NotFound>,
       },
       {
         path: "/books/:id",
@@ -91,6 +96,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         errorElement: <NotFound></NotFound>,
+      },
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },
