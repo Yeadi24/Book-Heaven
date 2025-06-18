@@ -12,9 +12,12 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/mybooks?email=${user.email}`, {
-        credentials: "include",
-      })
+      fetch(
+        `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/mybooks?email=${user.email}`,
+        {
+          credentials: "include",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);

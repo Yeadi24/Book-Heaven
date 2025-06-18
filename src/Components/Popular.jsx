@@ -9,7 +9,7 @@ const Popular = () => {
 
   useEffect(() => {
     document.title = "Home | Book Heaven";
-    fetch("http://localhost:3000/books")
+    fetch("https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books")
       .then((res) => res.json())
       .then((data) => {
         const topBooks = data.sort((a, b) => b.upvote - a.upvote).slice(0, 6);
@@ -39,7 +39,6 @@ const Popular = () => {
       ) : (
         <Bounce triggerOnce>
           {" "}
-       
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {books.map((book) => (
               <Card key={book._id} book={book} />

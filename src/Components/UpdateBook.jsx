@@ -15,7 +15,10 @@ const UpdateBook = () => {
   const [bookData, setBookData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}`, { credentials: "include" })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${id}`,
+      { credentials: "include" }
+    )
       .then((res) => res.json())
       .then((data) => setBookData(data))
       .catch((err) => console.error("Error fetching book:", err));
@@ -27,14 +30,17 @@ const UpdateBook = () => {
     const formData = new FormData(form);
     const updatedBook = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/books/${id}`, {
-      credentials: "include",
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedBook),
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${id}`,
+      {
+        credentials: "include",
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

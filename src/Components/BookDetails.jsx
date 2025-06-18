@@ -17,18 +17,24 @@ const BookDetails = () => {
   const [editingText, setEditingText] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${id}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setBook(data);
         setUpvotes(data.upvote || 0);
       });
 
-    fetch(`http://localhost:3000/reviews?book_id=${id}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/reviews?book_id=${id}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [id]);
@@ -39,7 +45,7 @@ const BookDetails = () => {
       return;
     }
     fetch(
-      `http://localhost:3000/upvote/${id}`,
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/upvote/${id}`,
 
       {
         method: "PATCH",
@@ -69,7 +75,7 @@ const BookDetails = () => {
       review_text: newReview,
       created_at: new Date().toISOString(),
     };
-    fetch(`http://localhost:3000/reviews`, {
+    fetch(`https://server-side-yeadi24-yeadi-24s-projects.vercel.app/reviews`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -92,10 +98,13 @@ const BookDetails = () => {
   };
   //review delete
   const handleDelete = (reviewId) => {
-    fetch(`http://localhost:3000/reviews/${reviewId}`, {
-      credentials: "include",
-      method: "DELETE",
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/reviews/${reviewId}`,
+      {
+        credentials: "include",
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         setReviews(reviews.filter((r) => r._id !== reviewId));
@@ -104,14 +113,17 @@ const BookDetails = () => {
   };
   //review edit
   const handleEditSubmit = (reviewId) => {
-    fetch(`http://localhost:3000/reviews/${reviewId}`, {
-      credentials: "include",
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ review_text: editingText }),
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/reviews/${reviewId}`,
+      {
+        credentials: "include",
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ review_text: editingText }),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         setReviews(
@@ -128,14 +140,17 @@ const BookDetails = () => {
     const newStatus = book.reading_status;
     const updatedBook = { ...book, reading_status: newStatus };
     console.log("Updated Book Object:", updatedBook);
-    fetch(`http://localhost:3000/books/${book._id}`, {
-      credentials: "include",
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedBook),
-    })
+    fetch(
+      `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${book._id}`,
+      {
+        credentials: "include",
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

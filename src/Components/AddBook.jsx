@@ -21,7 +21,11 @@ const AddBook = () => {
     bookData.upvote = 0;
 
     axios
-      .post("http://localhost:3000/books", { withCredentials: true }, bookData)
+      .post(
+        "https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books",
+        { withCredentials: true },
+        bookData
+      )
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire("Book has been added to the shelf 📚");

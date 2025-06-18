@@ -9,7 +9,7 @@ const Fantasy = ({ category = "Fantasy" }) => {
 
   useEffect(() => {
     document.title = `${category} | Book Heaven`;
-    fetch("http://localhost:3000/books")
+    fetch("https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

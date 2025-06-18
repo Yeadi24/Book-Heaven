@@ -14,9 +14,12 @@ const MyBooks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/mybooks?email=${user.email}`, {
-        credentials: "include",
-      })
+      fetch(
+        `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/mybooks?email=${user.email}`,
+        {
+          credentials: "include",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);
@@ -35,10 +38,13 @@ const MyBooks = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/books/${id}`, {
-          credentials: "include",
-          method: "DELETE",
-        })
+        fetch(
+          `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${id}`,
+          {
+            credentials: "include",
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

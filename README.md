@@ -1,90 +1,100 @@
 # 📚 Book Heaven
 
-**Live URL:** [https://book-heaven.web.app]
+**Live URL:** [https://rafiulhaquephb11a1121159.surge.sh](https://rafiulhaquephb11a1121159.surge.sh)
 
-Book Heaven is a beautifully designed web application where users can discover, read, track, and download books in various categories. With a vibrant UI and smooth UX transitions, it aims to offer a premium digital reading experience.
+Book Heaven is a beautifully designed full-stack web application where users can discover, read, track, review, and download books across various genres. With an engaging UI and seamless experience, it offers a premium digital reading platform.
 
 ---
 
 ## 🚀 Purpose
 
-Book Heaven is designed to bring the joy of reading online. It allows users to explore a vast library of books, manage their reading progress, write and manage reviews, and even download e-books for offline access.
+Book Heaven brings the joy of reading to the digital world. It enables users to:
+
+- Explore a large online library
+- Track their personal reading journey
+- Review books and see what others think
+- Download e-books for offline access
 
 ---
 
 ## 🌟 Key Features
 
-- 🔐 **Authentication System**
+### 🔐 Authentication System
 
-  - Sign up & log in using email/password or Google
-  - Protected routes based on user authentication
+- Sign up & log in using email/password or Google
+- Protected routes based on authentication
+- JWT-based secure token authentication
 
-- 📖 **Book Exploration**
+### 📖 Book Exploration
 
-  - Browse books by category
-  - View book details including cover, author, description, and upvotes
+- Browse books by category
+- See book details (cover, author, description, upvotes)
 
-- 🗂️ **Reading Tracker**
+### 🗂️ Reading Tracker
 
-  - Track books by statuses: **To Read**, **Reading**, **Finished**
-  - Update reading progress with a single click
+- Update reading status: **To Read**, **Reading**, **Finished**
+- Visual feedback on your reading journey
 
-- ✍️ **User Reviews**
+### ✍️ User Reviews
 
-  - Leave one review per book
-  - Edit and delete your own reviews
+- Submit **one** review per book
+- Edit and delete your own reviews
+- See reviews from other users
 
-- ⬇️ **E-book Downloads**
+### ⬇️ E-book Downloads
 
-  - Download e-books in supported formats for offline reading
+- Download books for offline reading in supported formats
 
-- 👍 **Upvote System**
+### 👍 Upvote System
 
-  - Upvote books you like
-  - Prevent duplicate upvotes per user
+- Upvote books you enjoy
+- Prevents multiple upvotes from the same user
 
-- 🧮 **Dashboard Metrics**
+### 📊 Dashboard Metrics
 
-  - Total users
-  - Total book downloads
-  - Number of books in library
-  - Daily active users
+- Total registered users
+- Number of book downloads
+- Number of books in the library
+- Daily active users (DAU)
 
-- 🔍 **Search & Filter**
+### 🔍 Search & Filter
 
-  - Filter books by categories and reading status
-  - Search by title or author
+- Search books by title or author
+- Filter by category and reading status
 
-- 📱 **Responsive Design**
+### 📱 Responsive Design
 
-  - Fully optimized for mobile, tablet, and desktop devices
+- Optimized for mobile, tablet, and desktop devices
 
-- 🎨 **Animated UI**
-  - Smooth transitions using Framer Motion
-  - Count-up effects for stats
+### 🎨 Animated UI
+
+- Smooth transitions with **Framer Motion**
+- Animated count-up effects for stats
+- Scroll-triggered animations for dynamic content reveal
 
 ---
 
 ## 🛠️ Technologies & Packages Used
 
-### 🔧 Frontend
+### 🔧 Frontend (React)
 
-- **React.js** – Main UI library
-- **Tailwind CSS** – Utility-first CSS for styling
-- **React Router DOM** – Routing system
-- **Axios** – HTTP client for API requests
-- **Framer Motion** – Animations and transitions
-- **SweetAlert2** – Alert and notification modals
+- **React.js** – Frontend UI library
+- **Tailwind CSS** – Utility-first CSS framework
+- **React Router DOM** – For routing and navigation
+- **Axios** – HTTP client for API communication
+- **Framer Motion** – For animations and transitions
+- **SweetAlert2** – Elegant modals and alerts
 - **React Icons** – Icon library
-- **React CountUp** – Animated counters
-- **React Awesome Reveal** – Scroll-triggered animations
-- **Firebase** – Authentication and hosting
+- **React CountUp** – Number animation
+- **React Awesome Reveal** – Scroll animations
+- **Firebase** – Authentication & Hosting
 
-### 🌐 Backend
+### 🌐 Backend (Node + Express)
 
-- **Node.js** – Server runtime
-- **Express.js** – Backend framework
+- **Node.js** – JavaScript runtime
+- **Express.js** – Web server framework
 - **MongoDB** – NoSQL database
-- **dotenv** – Environment variables
-- **CORS** – Middleware for cross-origin requests
-- **MongoDB Atlas** – Cloud-hosted database
+- **MongoDB Atlas** – Cloud-hosted MongoDB
+- **JWT (jsonwebtoken)** – For user token authentication
+- **dotenv** – Environment variable management
+- **CORS** – Cross-Origin Resource Sharing setup
