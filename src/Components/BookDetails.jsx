@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
 import { FaArrowUp } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Loading from "./Loading";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const BookDetails = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [id]);
-
+  // book upvote
   const handleUpvote = () => {
     if (user?.email === book?.user_email) {
       Swal.fire("You cannot upvote your own book!");
@@ -49,7 +50,7 @@ const BookDetails = () => {
         })
       );
   };
-
+  // review submit
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     const reviewData = {
@@ -78,7 +79,7 @@ const BookDetails = () => {
         });
       });
   };
-
+  //review delete
   const handleDelete = (reviewId) => {
     fetch(`http://localhost:3000/reviews/${reviewId}`, {
       method: "DELETE",
@@ -89,7 +90,7 @@ const BookDetails = () => {
         Swal.fire("Deleted!", "Your review has been deleted.", "success");
       });
   };
-
+  //review edit
   const handleEditSubmit = (reviewId) => {
     fetch(`http://localhost:3000/reviews/${reviewId}`, {
       method: "PATCH",
@@ -109,32 +110,30 @@ const BookDetails = () => {
         Swal.fire("Updated!", "Your review has been updated.", "success");
       });
   };
-
-  const handleReadingStatusUpdate = () => {
-    if (user?.email !== book?.user_email) {
-      Swal.fire("You cannot change the reading status of this book.");
-      return;
-    }
-
-    fetch(`http://localhost:3000/books/${id}`, {
-      method: "PATCH",
+  //update reading status
+  const handleUpdateReadingStatus = () => {
+    const newStatus = book.reading_status;
+    const updatedBook = { ...book, reading_status: newStatus };
+    console.log("Updated Book Object:", updatedBook);
+    fetch(`http://localhost:3000/books/${book._id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ reading_status: book.reading_status }),
+      body: JSON.stringify(updatedBook),
     })
       .then((res) => res.json())
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Reading status has been updated!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire("Reading Status has been updated successfully!");
+        }
+      })
+      .catch((err) => {
+        console.error("Update failed:", err);
       });
   };
 
-  if (!book) return <div>Loading...</div>;
+  if (!book) return <Loading></Loading>;
 
   const categoryColors = {
     Fiction: "from-pink-400 to-pink-600",
@@ -221,7 +220,7 @@ const BookDetails = () => {
               <option value="Read">Read</option>
             </select>
             <button
-              onClick={handleReadingStatusUpdate}
+              onClick={handleUpdateReadingStatus}
               className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg shadow hover:scale-105 transition"
             >
               Submit
