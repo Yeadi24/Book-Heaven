@@ -3,6 +3,10 @@ import Slider from "./Slider";
 import Banner from "./Banner";
 import Stats from "./Stats";
 import Popular from "./Popular";
+import Fiction from "./Fiction";
+import NonFiction from "./NonFiction";
+import Fantasy from "./Fantasy";
+import Offer from "./Offer";
 
 const Home = () => {
   document.title = "Home";
@@ -11,6 +15,10 @@ const Home = () => {
       <Banner></Banner>
       <Slider></Slider>
       <Popular></Popular>
+      <Fiction></Fiction>
+      <NonFiction></NonFiction>
+      <Fantasy></Fantasy>
+      <Offer></Offer>
       <Stats></Stats>
     </div>
   );

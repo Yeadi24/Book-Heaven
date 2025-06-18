@@ -38,9 +38,7 @@ const Banner = () => {
             </button>
           </div>
 
-          {/* Image Section - You can add motion.div here */}
           <div className="w-full lg:w-1/2 flex justify-center gap-4 flex-wrap">
-            {/* Placeholder for Image 1 */}
             <motion.div
               animate={{ y: [0, 30, 0] }}
               transition={{ duration: 5, repeat: Infinity }}
@@ -52,7 +50,7 @@ const Banner = () => {
                 className="w-full h-auto object-cover"
               />
             </motion.div>
-            {/* Placeholder for Image 2 */}
+
             <motion.div
               className="w-40 md:w-48 lg:w-56 rounded-xl shadow-lg overflow-hidden"
               animate={{ y: [0, -30, 0] }}
