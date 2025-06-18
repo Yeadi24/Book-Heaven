@@ -9,7 +9,7 @@ const Popular = () => {
 
   useEffect(() => {
     document.title = "Home | Book Heaven";
-    fetch("https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books")
+    fetch("https://server-side-delta-two.vercel.app/books")
       .then((res) => res.json())
       .then((data) => {
         const topBooks = data.sort((a, b) => b.upvote - a.upvote).slice(0, 6);

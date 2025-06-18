@@ -46,9 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/bookshelf",
         loader: () => {
-          const data = fetch(
-            `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books`
-          );
+          const data = fetch(`https://server-side-delta-two.vercel.app/books`);
           return data;
         },
         element: <BookShelf></BookShelf>,
@@ -67,7 +65,7 @@ const router = createBrowserRouter([
         path: "/updateBook/:id",
         loader: ({ params }) => {
           const data = fetch(
-            `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${params.id}`
+            `https://server-side-delta-two.vercel.app/books/${params.id}`
           );
           return data;
         },
@@ -92,7 +90,7 @@ const router = createBrowserRouter([
         path: "/books/:id",
         loader: ({ params }) => {
           const data = fetch(
-            `https://server-side-yeadi24-yeadi-24s-projects.vercel.app/books/${params.id}`
+            `https://server-side-delta-two.vercel.app/books/${params.id}`
           );
           return data;
         },
