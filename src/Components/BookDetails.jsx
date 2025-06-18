@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import Loading from "./Loading";
 
 const BookDetails = () => {
+  document.title = "Book Details | Book Heaven";
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [book, setBook] = useState(null);
@@ -16,14 +17,18 @@ const BookDetails = () => {
   const [editingText, setEditingText] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}`)
+    fetch(`http://localhost:3000/books/${id}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setBook(data);
         setUpvotes(data.upvote || 0);
       });
 
-    fetch(`http://localhost:3000/reviews?book_id=${id}`)
+    fetch(`http://localhost:3000/reviews?book_id=${id}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [id]);
@@ -33,9 +38,14 @@ const BookDetails = () => {
       Swal.fire("You cannot upvote your own book!");
       return;
     }
-    fetch(`http://localhost:3000/upvote/${id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `http://localhost:3000/upvote/${id}`,
+
+      {
+        method: "PATCH",
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then(() =>
         setUpvotes((prev) => {
@@ -61,6 +71,7 @@ const BookDetails = () => {
     };
     fetch(`http://localhost:3000/reviews`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -82,6 +93,7 @@ const BookDetails = () => {
   //review delete
   const handleDelete = (reviewId) => {
     fetch(`http://localhost:3000/reviews/${reviewId}`, {
+      credentials: "include",
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -93,6 +105,7 @@ const BookDetails = () => {
   //review edit
   const handleEditSubmit = (reviewId) => {
     fetch(`http://localhost:3000/reviews/${reviewId}`, {
+      credentials: "include",
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -116,6 +129,7 @@ const BookDetails = () => {
     const updatedBook = { ...book, reading_status: newStatus };
     console.log("Updated Book Object:", updatedBook);
     fetch(`http://localhost:3000/books/${book._id}`, {
+      credentials: "include",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

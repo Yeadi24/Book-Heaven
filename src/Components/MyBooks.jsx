@@ -14,7 +14,9 @@ const MyBooks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/mybooks?email=${user.email}`)
+      fetch(`http://localhost:3000/mybooks?email=${user.email}`, {
+        credentials: "include",
+      })
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);
@@ -34,6 +36,7 @@ const MyBooks = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/books/${id}`, {
+          credentials: "include",
           method: "DELETE",
         })
           .then((res) => res.json())

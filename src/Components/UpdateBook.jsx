@@ -15,7 +15,7 @@ const UpdateBook = () => {
   const [bookData, setBookData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}`)
+    fetch(`http://localhost:3000/books/${id}`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setBookData(data))
       .catch((err) => console.error("Error fetching book:", err));
@@ -28,6 +28,7 @@ const UpdateBook = () => {
     const updatedBook = Object.fromEntries(formData.entries());
 
     fetch(`http://localhost:3000/books/${id}`, {
+      credentials: "include",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

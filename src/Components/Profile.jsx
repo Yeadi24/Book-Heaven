@@ -12,11 +12,12 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/mybooks?email=${user.email}`)
+      fetch(`http://localhost:3000/mybooks?email=${user.email}`, {
+        credentials: "include",
+      })
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);
-          console.log(data);
         });
     }
   }, [user]);

@@ -21,7 +21,7 @@ const AddBook = () => {
     bookData.upvote = 0;
 
     axios
-      .post("http://localhost:3000/books", bookData)
+      .post("http://localhost:3000/books", { withCredentials: true }, bookData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire("Book has been added to the shelf 📚");
