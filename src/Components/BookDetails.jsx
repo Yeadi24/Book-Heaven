@@ -110,6 +110,30 @@ const BookDetails = () => {
       });
   };
 
+  const handleReadingStatusUpdate = () => {
+    if (user?.email !== book?.user_email) {
+      Swal.fire("You cannot change the reading status of this book.");
+      return;
+    }
+
+    fetch(`http://localhost:3000/books/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ reading_status: book.reading_status }),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Reading status has been updated!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+
   if (!book) return <div>Loading...</div>;
 
   const categoryColors = {
@@ -153,6 +177,8 @@ const BookDetails = () => {
           </p>
         </div>
       </div>
+
+      {/* Upvote Section */}
       <div className="bg-gradient-to-r from-indigo-200 to-purple-300 p-6 rounded-2xl shadow-md text-center">
         <h3 className="text-2xl font-bold text-gray-800 mb-4">
           Enjoying this book?
@@ -164,6 +190,47 @@ const BookDetails = () => {
           <FaArrowUp className="text-lg" /> {upvotes} Upvotes
         </button>
       </div>
+
+      {/* Reading Status Update Section */}
+      <div className="bg-gradient-to-r from-yellow-200 to-orange-300 p-6 rounded-2xl shadow-lg">
+        <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+          Manage Your Reading Status
+        </h3>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-lg font-semibold text-gray-700">
+            Current Status:{" "}
+            <span className="px-3 py-1 rounded-full bg-white shadow-md text-indigo-700">
+              {book.reading_status}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <select
+              value={book.reading_status}
+              onChange={(e) =>
+                setBook((prev) => ({
+                  ...prev,
+                  reading_status: e.target.value,
+                }))
+              }
+              className="p-2 rounded-md border border-gray-300 shadow focus:ring-2 focus:ring-indigo-400"
+            >
+              <option value="Want-to-Read">Want-to-Read</option>
+              <option value="Reading">Reading</option>
+              <option value="Read">Read</option>
+            </select>
+            <button
+              onClick={handleReadingStatusUpdate}
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg shadow hover:scale-105 transition"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Reviews Section */}
       <div className="bg-white p-6 rounded-3xl shadow-lg">
         <h3 className="text-2xl font-bold text-gray-800 mb-4">Reviews</h3>
 

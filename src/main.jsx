@@ -87,7 +87,7 @@ const router = createBrowserRouter([
       {
         path: "/books/:id",
         loader: ({ params }) => {
-          const data = fetch(`http://localhost:3000/posts/${params.id}`);
+          const data = fetch(`http://localhost:3000/books/${params.id}`);
           return data;
         },
         element: (

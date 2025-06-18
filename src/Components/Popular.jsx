@@ -8,11 +8,12 @@ const Popular = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = "🔥 Popular Books";
-    fetch("http://localhost:3000/books/popular")
+    document.title = "Home | Book Heaven";
+    fetch("http://localhost:3000/books")
       .then((res) => res.json())
       .then((data) => {
-        setBooks(data);
+        const topBooks = data.sort((a, b) => b.upvote - a.upvote).slice(0, 6);
+        setBooks(topBooks);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -37,7 +38,7 @@ const Popular = () => {
         </p>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <Bounce cascade damping={0.1}>
+          <Bounce cascade damping={0.001}>
             {books.map((book) => (
               <Card key={book._id} book={book} />
             ))}
