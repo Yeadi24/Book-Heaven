@@ -1,7 +1,6 @@
 import React, { use, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
-import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../public/firebase.init";

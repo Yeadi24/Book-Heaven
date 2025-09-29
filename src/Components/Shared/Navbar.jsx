@@ -34,16 +34,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/login" className={linkStyle + " text-green-700"}>
-          LogIn
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/register" className={linkStyle + " text-blue-700"}>
-          Register
-        </NavLink>
-      </li>
+
       <li>
         <NavLink to="/bookshelf" className={linkStyle + " text-red-700"}>
           Bookshelf

@@ -11,7 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
   const { createUser, update, GoogleSignIn } = use(AuthContext);
 
-  const handleGoogleSignIn = () => {
+const handleGoogleSignIn = () => {
     GoogleSignIn()
       .then(() => {
         Swal.fire({
