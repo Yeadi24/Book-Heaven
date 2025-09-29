@@ -8,6 +8,7 @@ import NonFiction from "./NonFiction";
 import Fantasy from "./Fantasy";
 import Offer from "./Offer";
 import GiftPrepaidCards from "./GiftPrepaidCards";
+import BooksBestsellers from "./BooksBestsellers";
 
 const Home = () => {
   document.title = "Home";
@@ -20,6 +21,7 @@ const Home = () => {
       <NonFiction></NonFiction>
       <Fantasy></Fantasy>
       <Offer></Offer>
+      <BooksBestsellers></BooksBestsellers>
       <GiftPrepaidCards></GiftPrepaidCards>
       <Stats></Stats>
     </div>
