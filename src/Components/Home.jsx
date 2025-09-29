@@ -9,6 +9,7 @@ import Fantasy from "./Fantasy";
 import Offer from "./Offer";
 import GiftPrepaidCards from "./GiftPrepaidCards";
 import BooksBestsellers from "./BooksBestsellers";
+import Brands from "./Brands";
 
 const Home = () => {
   document.title = "Home";
@@ -22,6 +23,7 @@ const Home = () => {
       <Fantasy></Fantasy>
       <Offer></Offer>
       <BooksBestsellers></BooksBestsellers>
+      <Brands></Brands>
       <GiftPrepaidCards></GiftPrepaidCards>
       <Stats></Stats>
     </div>

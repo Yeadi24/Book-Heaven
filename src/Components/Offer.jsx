@@ -1,10 +1,10 @@
 import React from "react";
-import { Roll } from "react-awesome-reveal";
+import { Roll, Slide } from "react-awesome-reveal";
 import { motion } from "framer-motion"; // fixed incorrect import from 'motion/react'
 
 const Offer = () => {
   return (
-    <Roll direction="right" cascade>
+    <Slide triggerOnce={true} duration={1200} delay={300} direction="left">
       <div className="m-4 md:m-10">
         <div className="hero bg-gradient-to-br from-purple-200 via-pink-100 to-blue-100 min-h-screen rounded-3xl p-5 md:p-10 shadow-xl">
           <div className="hero-content flex-col-reverse lg:flex-row justify-between items-center gap-8 w-full">
@@ -57,7 +57,7 @@ const Offer = () => {
           </div>
         </div>
       </div>
-    </Roll>
+    </Slide>
   );
 };
 

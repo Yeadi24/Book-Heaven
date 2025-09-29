@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
-import { Bounce, Flip } from "react-awesome-reveal";
+import { Bounce, Flip, Slide } from "react-awesome-reveal";
 import { FaFireAlt } from "react-icons/fa";
 
 const Fiction = ({ category = "Fiction" }) => {
@@ -46,18 +46,13 @@ const Fiction = ({ category = "Fiction" }) => {
           No {category.toLowerCase()} books found.
         </p>
       ) : (
-        <Flip
-          triggerOnce={true}
-          duration={900}
-          delay={400}
-          direction="horizontal" // Flip direction: 'horizontal', 'vertical'
-        >
+        <Slide triggerOnce={true} duration={1200} delay={300} direction="left">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {books.map((book) => (
               <Card key={book._id} book={book} />
             ))}
           </div>
-        </Flip>
+        </Slide>
       )}
     </div>
   );
